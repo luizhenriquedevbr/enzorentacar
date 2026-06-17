@@ -138,9 +138,12 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 120px;
+            height: 60px;
             background: linear-gradient(to top, #F8FAFC, transparent);
             pointer-events: none;
+        }
+        @media (min-width: 768px) {
+            .hero-gradient::after { height: 120px; }
         }
 
         /* Cards */
@@ -267,10 +270,10 @@
     <!-- ===================== NAVBAR ===================== -->
     <nav class="navbar fixed top-0 left-0 right-0 z-50 bg-primary/80" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
+            <div class="flex items-center justify-between h-16 sm:h-20">
                 <!-- Logo -->
                 <a href="#" class="flex items-center gap-3">
-                    <img src="img/enzo.png" alt="Enzo Rent a Car" class="h-12 w-auto">
+                    <img src="img/enzo.png" alt="Enzo Rent a Car" class="h-9 sm:h-12 w-auto">
                 </a>
 
                 <!-- Desktop Nav -->
@@ -310,63 +313,63 @@
     </nav>
 
     <!-- ===================== HERO ===================== -->
-    <section class="hero-gradient min-h-screen flex items-center pt-20 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 w-full">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <section class="hero-gradient relative pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-24 w-full">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+
+                <!-- Hero Car Image (mobile: first, desktop: second via order) -->
+                <div class="relative flex items-center justify-center order-first lg:order-last" style="animation: carSlide 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent/5 rounded-3xl"></div>
+                    <img src="img/dolphin-mini.png" alt="BYD Dolphin Mini - Carro elétrico para aluguel" class="car-showcase relative z-10 w-full max-w-[280px] sm:max-w-sm lg:max-w-lg drop-shadow-2xl"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hidden flex-col items-center justify-center w-full max-w-[280px] sm:max-w-sm lg:max-w-lg aspect-video bg-gradient-to-br from-secondary to-primary rounded-2xl border border-white/5 p-6 text-center">
+                        <svg class="w-16 h-16 sm:w-20 sm:h-20 text-accent/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 17h.01M12 17h.01M16 17h.01M3 11l1.5-5.5A2 2 0 016.4 4h11.2a2 2 0 011.9 1.5L21 11M3 11v6a1 1 0 001 1h1a2 2 0 004 0h6a2 2 0 004 0h1a1 1 0 001-1v-6M3 11h18"/></svg>
+                        <span class="text-white/40 font-heading font-semibold text-sm">BYD Dolphin Mini</span>
+                        <span class="text-white/20 font-body text-xs mt-1">Adicione a imagem em img/dolphin-mini.png</span>
+                    </div>
+                </div>
+
                 <!-- Hero Text -->
-                <div class="space-y-8" style="animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards">
+                <div class="space-y-5 sm:space-y-6 lg:space-y-8 text-center lg:text-left order-last lg:order-first" style="animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards">
                     <div>
-                        <span class="inline-block bg-accent/10 text-accent font-heading font-semibold text-xs uppercase tracking-widest px-4 py-2 rounded-full mb-6 border border-accent/20">
+                        <span class="inline-block bg-accent/10 text-accent font-heading font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6 border border-accent/20">
                             100% Elétrico &bull; Brasília/DF
                         </span>
-                        <h1 class="font-heading font-900 text-4xl sm:text-5xl lg:text-6xl text-white leading-tight">
+                        <h1 class="font-heading font-900 text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
                             Dirija mais.<br>
                             <span class="text-accent">Gaste menos.</span>
                         </h1>
                     </div>
-                    <p class="font-body text-lg sm:text-xl text-white/70 leading-relaxed max-w-xl">
+                    <p class="font-body text-base sm:text-lg md:text-xl text-white/70 leading-relaxed max-w-xl mx-auto lg:mx-0">
                         Alugue o <strong class="text-white">BYD Dolphin Mini</strong> — o carro elétrico mais econômico do Brasil — para rodar em aplicativos ou montar sua frota em Brasília.
                     </p>
 
                     <!-- Hero CTAs -->
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#planos" class="group bg-accent hover:bg-accent-hover text-white font-heading font-bold text-base px-8 py-4 rounded-xl transition-all duration-200 cursor-pointer text-center flex items-center justify-center gap-2 shadow-lg shadow-accent/25">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:justify-center lg:justify-start">
+                        <a href="#planos" class="group bg-accent hover:bg-accent-hover text-white font-heading font-bold text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all duration-200 cursor-pointer text-center flex items-center justify-center gap-2 shadow-lg shadow-accent/25 min-h-[48px]">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                             Quero para Aplicativo
                         </a>
-                        <a href="#planos" class="group border-2 border-white/20 hover:border-white/40 text-white font-heading font-bold text-base px-8 py-4 rounded-xl transition-all duration-200 cursor-pointer text-center flex items-center justify-center gap-2">
+                        <a href="#planos" class="group border-2 border-white/20 hover:border-white/40 text-white font-heading font-bold text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all duration-200 cursor-pointer text-center flex items-center justify-center gap-2 min-h-[48px]">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                             Quero para Frota
                         </a>
                     </div>
 
                     <!-- Trust micro-stats -->
-                    <div class="flex flex-wrap gap-8 pt-4">
-                        <div>
-                            <span class="font-heading font-800 text-2xl text-white">280 km</span>
-                            <span class="block font-body text-xs text-white/50 mt-1">Autonomia INMETRO</span>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 lg:gap-8 pt-2 sm:pt-4">
+                        <div class="text-center lg:text-left">
+                            <span class="font-heading font-800 text-xl sm:text-2xl text-white">280 km</span>
+                            <span class="block font-body text-[10px] sm:text-xs text-white/50 mt-0.5 sm:mt-1">Autonomia INMETRO</span>
                         </div>
-                        <div class="border-l border-white/10 pl-8">
-                            <span class="font-heading font-800 text-2xl text-white">R$ 0,09</span>
-                            <span class="block font-body text-xs text-white/50 mt-1">Custo por km</span>
+                        <div class="border-l border-white/10 pl-4 sm:pl-6 lg:pl-8 text-center lg:text-left">
+                            <span class="font-heading font-800 text-xl sm:text-2xl text-white">R$ 0,09</span>
+                            <span class="block font-body text-[10px] sm:text-xs text-white/50 mt-0.5 sm:mt-1">Custo por km</span>
                         </div>
-                        <div class="border-l border-white/10 pl-8">
-                            <span class="font-heading font-800 text-2xl text-accent">6</span>
-                            <span class="block font-body text-xs text-white/50 mt-1">Airbags</span>
+                        <div class="border-l border-white/10 pl-4 sm:pl-6 lg:pl-8 text-center lg:text-left">
+                            <span class="font-heading font-800 text-xl sm:text-2xl text-accent">6</span>
+                            <span class="block font-body text-[10px] sm:text-xs text-white/50 mt-0.5 sm:mt-1">Airbags</span>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Hero Car Image -->
-                <div class="relative flex items-center justify-center" style="animation: carSlide 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both">
-                    <div class="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent/5 rounded-3xl"></div>
-                    <!-- Replace src with actual BYD Dolphin Mini image -->
-                    <img src="img/dolphin-mini.png" alt="BYD Dolphin Mini - Carro elétrico para aluguel" class="car-showcase relative z-10 w-full max-w-lg drop-shadow-2xl"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="hidden flex-col items-center justify-center w-full max-w-lg aspect-video bg-gradient-to-br from-secondary to-primary rounded-2xl border border-white/5 p-8 text-center">
-                        <svg class="w-20 h-20 text-accent/40 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 17h.01M12 17h.01M16 17h.01M3 11l1.5-5.5A2 2 0 016.4 4h11.2a2 2 0 011.9 1.5L21 11M3 11v6a1 1 0 001 1h1a2 2 0 004 0h6a2 2 0 004 0h1a1 1 0 001-1v-6M3 11h18"/></svg>
-                        <span class="text-white/40 font-heading font-semibold text-sm">BYD Dolphin Mini</span>
-                        <span class="text-white/20 font-body text-xs mt-1">Adicione a imagem em img/dolphin-mini.png</span>
                     </div>
                 </div>
             </div>
@@ -552,8 +555,8 @@
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 
                 <!-- Plan 1: Aplicativo -->
-                <div class="plan-card featured bg-white rounded-2xl shadow-lg overflow-hidden animate-on-scroll">
-                    <div class="bg-gradient-to-r from-accent to-accent-hover p-8 text-white">
+                <div class="plan-card featured bg-white rounded-2xl shadow-lg overflow-visible animate-on-scroll mt-5">
+                    <div class="bg-gradient-to-r from-accent to-accent-hover p-8 text-white rounded-t-2xl">
                         <div class="flex items-center gap-3 mb-4">
                             <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
